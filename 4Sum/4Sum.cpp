@@ -99,15 +99,14 @@ bool ListNode::ValuesDoNotExist( int v0, int v1, int v2, int v3 )
 */
 bool ListNode::QuadrupletDoesNotExist( int v0, int v1, int v2, int v3 )
 {
-//	return true; // Если раскомментировать эту строку, то добавленный фильтр окажется отключённым.
-	bool res = true;
+//	return true; // Если раскомментировать эту строку, то добавленный фильтр окажется отключённым и сгенерированные четвёрки начнут повторяться.
 	ListNode *current = this;
 	do{
 		if( !ValueDoesNotExistInArray( current->arr, v0 ) && !ValueDoesNotExistInArray( current->arr, v1 ) && !ValueDoesNotExistInArray( current->arr, v2 ) && !ValueDoesNotExistInArray( current->arr, v3 ) )
 			return false;
 		current = current->next;
 	} while( current != nullptr );
-	return res;
+	return true;
 }
 
 bool ValueDoesNotExistInArray( int *arr, int value )
